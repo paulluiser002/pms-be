@@ -1,0 +1,20 @@
+-- Draft PMS domain schema. Apply to an empty PostgreSQL database.
+BEGIN;
+CREATE TABLE companies (id uuid PRIMARY KEY, name text NOT NULL);
+CREATE TABLE departments (id uuid PRIMARY KEY, company_id uuid NOT NULL REFERENCES companies, name text NOT NULL, UNIQUE(company_id,name));
+CREATE TABLE employees (id uuid PRIMARY KEY, company_id uuid NOT NULL REFERENCES companies, department_id uuid REFERENCES departments, employee_number text NOT NULL, full_name text NOT NULL, job_title text NOT NULL, email text, active boolean NOT NULL DEFAULT true, UNIQUE(company_id,employee_number));
+CREATE TABLE reporting_lines (id uuid PRIMARY KEY, employee_id uuid NOT NULL REFERENCES employees, manager_id uuid NOT NULL REFERENCES employees, starts_on date NOT NULL, ends_on date, CHECK(employee_id <> manager_id), CHECK(ends_on IS NULL OR ends_on >= starts_on));
+CREATE TABLE goal_templates (id uuid PRIMARY KEY, company_id uuid NOT NULL REFERENCES companies, name text NOT NULL, description text NOT NULL DEFAULT '', active boolean NOT NULL DEFAULT true);
+CREATE TABLE indicators (id uuid PRIMARY KEY, template_id uuid NOT NULL REFERENCES goal_templates, name text NOT NULL, target numeric NOT NULL, unit text NOT NULL DEFAULT '', direction text NOT NULL CHECK(direction IN ('higher','lower')), position integer NOT NULL, UNIQUE(template_id,position));
+CREATE TABLE indicator_matrices (id uuid PRIMARY KEY, indicator_id uuid NOT NULL REFERENCES indicators, name text NOT NULL, scoring_enabled boolean NOT NULL DEFAULT false, definition jsonb NOT NULL);
+CREATE TABLE behavioral_templates (id uuid PRIMARY KEY, company_id uuid NOT NULL REFERENCES companies, name text NOT NULL, definition jsonb NOT NULL);
+CREATE TABLE review_cycles (id uuid PRIMARY KEY, company_id uuid NOT NULL REFERENCES companies, name text NOT NULL, starts_on date NOT NULL, ends_on date NOT NULL, status text NOT NULL, CHECK(ends_on >= starts_on));
+CREATE TABLE evaluations (id uuid PRIMARY KEY, cycle_id uuid NOT NULL REFERENCES review_cycles, employee_id uuid NOT NULL REFERENCES employees, status text NOT NULL, template_snapshot jsonb NOT NULL, released_at timestamptz, UNIQUE(cycle_id,employee_id));
+CREATE TABLE indicator_results (id uuid PRIMARY KEY, evaluation_id uuid NOT NULL REFERENCES evaluations, indicator_id uuid NOT NULL REFERENCES indicators, target_snapshot numeric NOT NULL, actual numeric, verified_by uuid REFERENCES employees, verified_at timestamptz, UNIQUE(evaluation_id,indicator_id));
+CREATE TABLE behavioral_assessments (id uuid PRIMARY KEY, evaluation_id uuid NOT NULL REFERENCES evaluations, evaluator_id uuid NOT NULL REFERENCES employees, assessment jsonb NOT NULL, submitted_at timestamptz, UNIQUE(evaluation_id,evaluator_id));
+CREATE TABLE journal_entries (id uuid PRIMARY KEY, employee_id uuid NOT NULL REFERENCES employees, author_id uuid NOT NULL REFERENCES employees, subject text NOT NULL, body text NOT NULL, created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE nte_notices (id uuid PRIMARY KEY, employee_id uuid NOT NULL REFERENCES employees, issued_by uuid NOT NULL REFERENCES employees, category text NOT NULL, subject text NOT NULL, body text NOT NULL, deadline timestamptz NOT NULL, status text NOT NULL, issued_at timestamptz NOT NULL DEFAULT now(), response text, responded_at timestamptz);
+CREATE TABLE improvement_plans (id uuid PRIMARY KEY, employee_id uuid NOT NULL REFERENCES employees, evaluation_id uuid REFERENCES evaluations, created_by uuid REFERENCES employees, status text NOT NULL, reason text NOT NULL, created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE improvement_plan_weeks (id uuid PRIMARY KEY, plan_id uuid NOT NULL REFERENCES improvement_plans, week_number integer NOT NULL CHECK(week_number > 0), indicator_id uuid REFERENCES indicators, goal text NOT NULL, starts_on date NOT NULL, ends_on date NOT NULL, assessment text, UNIQUE(plan_id,week_number), CHECK(ends_on >= starts_on));
+CREATE TABLE notifications (id uuid PRIMARY KEY, employee_id uuid NOT NULL REFERENCES employees, subject text NOT NULL, body text NOT NULL, created_at timestamptz NOT NULL DEFAULT now(), read_at timestamptz);
+COMMIT;
