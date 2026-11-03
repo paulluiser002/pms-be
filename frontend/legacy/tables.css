@@ -1,0 +1,26 @@
+.panel.pms-list-panel{padding:0}
+.pms-list-panel .toolbar,.pms-detail-toolbar{margin:0;padding:20px 24px;align-items:end;gap:16px;flex-wrap:wrap}
+.pms-list-panel .tablewrap{margin:0;width:100%}
+.pms-list-panel table{width:100%}
+.pms-list-panel .urfilter{min-width:145px;flex:1 1 150px}
+.pms-list-panel .ursearch{flex:2 1 230px}
+.pms-list-panel .urfilter input,.pms-list-panel .urfilter select{width:100%;min-height:44px}
+.pms-list-panel .pms-clear{height:44px;align-self:end;white-space:nowrap}
+.pms-list-panel .tablefoot{margin:0;padding:17px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+/* Detail and setup tables also reach the card edges, while their supporting content stays inset. */
+.urintro:has(> .tablewrap){padding:0}
+.urintro:has(> .tablewrap)>h2{margin:24px 24px 5px}
+.urintro:has(> .tablewrap)>.urwideprogress{margin:24px}
+.urintro:has(> .tablewrap)>.tablefoot{margin:0;padding:17px 24px}
+.urwizardbody:has(> .tablewrap){padding-left:24px;padding-right:24px}
+.urwizardbody:has(> .tablewrap)>.tablewrap{margin-left:-24px;margin-right:-24px;width:calc(100% + 48px)}
+.urwizardbody:has(> .tablewrap)>.toolbar{margin:0;padding:20px 0;gap:16px}
+.urwizardbody:has(> .tablewrap)>.tablefoot{margin:0 -24px;padding:17px 24px}
+.pms-pagination{display:flex;align-items:center;gap:8px;margin-left:auto}
+.pms-pagination button{min-width:34px;height:34px;padding:0 9px;border:1px solid #d9e3eb;border-radius:8px;background:#fff;color:#466175;cursor:pointer}
+.pms-pagination button[disabled]{opacity:.45;cursor:default}
+.pms-pagination button.active{background:#eaf3fb;border-color:#b7d5eb;color:#276896;font-weight:700}
+.pms-pagination span{font-size:12px;color:#738999;margin:0 4px}
+.pms-list-panel .pms-bulkbar[hidden]{display:none!important}
+.pms-review-tabs{margin-bottom:14px}
+@media(max-width:900px){.pms-list-panel .urfilter{flex:1 1 180px}}

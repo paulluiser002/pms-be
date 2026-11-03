@@ -1,0 +1,17 @@
+.pg-period{padding:20px 24px;display:flex;flex-wrap:wrap;gap:12px 24px;border-top:1px solid #e1e8ef;color:#61758a;font-size:12px}.pg-period b{display:block;color:#3e5872;font-size:12px;margin-bottom:5px}.pg-period p{margin:0}.pg-period+.notice{margin:0 24px 16px}#pg-error{padding:0 24px}.pg-period~.tablewrap input{height:44px;min-width:100px;width:100%}.pg-period~.tablewrap td:first-child{min-width:200px}.pg-period~.tablewrap td:last-child{min-width:180px}.pg-period~.modalfoot:empty{display:none}.pg-period~.modalfoot .primary{background:#168fee}
+
+.pg-period~.tablewrap td:first-child,.pg-period~.tablewrap td:last-child{white-space:normal;overflow-wrap:anywhere}
+
+.pg-team-listing table{table-layout:fixed;min-width:760px}.pg-team-listing th,.pg-team-listing td{white-space:normal;overflow-wrap:anywhere}.pg-team-listing th:nth-child(1){width:20%}.pg-team-listing th:nth-child(2){width:15%}.pg-team-listing th:nth-child(3){width:23%}.pg-team-listing th:nth-child(4){width:25%}.pg-team-listing th:nth-child(5){width:17%}
+
+/* Shared field treatment applies to forms, filters, lookups and pagination. */
+:root{--dropdown-border:#dce5ed;--dropdown-text:#476078;--dropdown-radius:8px}
+select:not([multiple]){box-sizing:border-box!important;height:44px!important;min-height:44px!important;border:1px solid var(--dropdown-border)!important;border-radius:var(--dropdown-radius)!important;background-color:#fff!important;color:var(--dropdown-text)!important;font:inherit;font-size:12px!important;line-height:normal!important;box-shadow:none;cursor:pointer;padding:0 42px 0 16px!important;max-width:100%;text-overflow:ellipsis}
+select:not([multiple]):hover{border-color:#9ab8d1!important}
+select:not([multiple]):focus-visible{outline:2px solid #5b9fe2!important;outline-offset:2px;border-color:#5b9fe2!important;box-shadow:0 0 0 3px #eaf3fc!important}
+select:not([multiple]):disabled{background-color:#f5f8fb!important;color:#8798a8!important;cursor:not-allowed;opacity:1}
+select:not([multiple])[aria-invalid="true"]{border-color:#dc6262!important}
+select option{color:#476078;background:#fff;font-size:12px}
+.cw-field-description{display:block;white-space:normal;font-size:12px;line-height:1.5;color:#6c8194;font-weight:400;margin-top:2px}
+
+.ur-template-select{min-width:0;display:flex;flex-direction:column;gap:7px}.ur-template-select select{width:100%}.ur-template-description{margin:0!important}

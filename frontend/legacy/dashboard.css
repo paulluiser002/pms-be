@@ -1,0 +1,65 @@
+.pms-dash-stats .pms-dash-stat{text-align:left;width:100%;padding:22px 24px;border-radius:10px;box-shadow:none;white-space:normal}
+.pms-dash-stat .top{display:flex;align-items:start;gap:12px;font-size:12px;line-height:1.5;color:#62788a}
+.pms-dash-stat strong{font-size:36px;font-weight:600;line-height:1.15;margin:14px 0 10px;color:#293b50}
+.pms-dash-stat small{font-size:11px;line-height:1.6;color:#748797}
+.pms-dash-stat:hover{border-color:#8bb8da;background:#fbfdff}
+.pms-dash-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:stretch}
+.pms-dash-panel{min-width:0;display:flex;flex-direction:column}
+.pms-dash-panel .panelhead{padding:22px 24px 0;min-height:64px;align-items:start}
+.pms-dash-panel h2{font-size:15px;color:#344e63}
+.pms-dash-panel .panelhead p{font-size:12px;color:#7b8f9f;line-height:1.6}
+.pms-dash-body{padding:18px 24px 24px;flex:1}
+.pms-dash-bars{display:flex;flex-direction:column;gap:18px}
+.pms-dash-bar{display:grid;grid-template-columns:minmax(120px,1.3fr) minmax(75px,1fr) 43px;gap:14px;align-items:center;width:100%;text-align:left;padding:3px 0;border:0;background:transparent;border-radius:0;font-size:12px;line-height:1.5}
+.pms-dash-bar:hover>span:first-child{color:#3689c6}
+.pms-dash-bar .track{width:100%;height:8px}
+.pms-dash-bar b{font-size:12px;text-align:right;font-weight:600}
+.pms-dash-bar small{font-size:10px;margin-top:3px}
+.pms-dash-axis{display:flex;justify-content:space-between;margin-left:calc(56% + 2px);margin-right:57px;font-size:10px;color:#8ca0ae}
+.pms-dash-donut{display:flex;align-items:center;gap:26px;min-height:190px}
+.pms-dash-donut svg{width:180px;max-width:45%;flex-shrink:0}
+.pms-donut-value{font-size:25px;fill:#334c61;font-weight:600}
+.pms-donut-label{font-size:8px;fill:#7d929f}
+.pms-dash-legend{flex:1;min-width:0}
+.pms-dash-legend button{display:flex;align-items:center;gap:9px;width:100%;padding:10px 0;border:0;background:none;font-size:12px;text-align:left}
+.pms-dash-legend i{width:9px;height:9px;border-radius:3px;flex-shrink:0}
+.pms-dash-legend b{margin-left:auto}
+.pms-dash-note,.pms-dash-definition{font-size:11px;line-height:1.7;color:#7b8f9f}
+.pms-dash-note{margin-top:12px}
+.pms-dash-definition{margin-top:-7px}
+.pms-dash-list-row{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid #edf0f4}
+.pms-dash-list-row:first-child{padding-top:0}
+.pms-dash-list-row:last-child{padding-bottom:0;border-bottom:0}
+.pms-dash-list-row>div:first-child{min-width:0;flex:1}
+.pms-dash-list-row b{font-size:12px;line-height:1.6;font-weight:500;color:#405b70}
+.pms-dash-list-row p{font-size:12px;line-height:1.6;margin-top:4px}
+.pms-dash-list-row small{font-size:11px;line-height:1.5}
+.pms-dash-list-row>.textbtn,.pms-dash-row-action .textbtn{white-space:nowrap;font-size:11px}
+.pms-dash-row-action{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0}
+.pms-due-overdue{color:#c47863}
+.pms-dash-view-all{margin-top:16px}
+.pms-dash-empty,.pms-dash-loading{display:flex;align-items:center;justify-content:center;min-height:190px;font-size:13px;color:#8195a5;text-align:center;line-height:1.7;padding:24px}
+.pms-dash-loading{min-height:300px}
+.pms-dash-header{display:flex;align-items:center;justify-content:space-between;gap:28px;margin-bottom:24px}
+.pms-dash-title{min-width:300px;flex:1 1 auto}
+.pms-dash-title h1{margin-bottom:7px}
+.pms-dash-title p{font-size:12px;line-height:1.5}
+.pms-dash-filters{display:flex;align-items:center;justify-content:flex-end;flex:0 1 auto;flex-wrap:wrap;gap:12px;margin:0;padding:0}
+.pms-dash-control{display:block;flex:0 1 auto;margin:0;color:#536b7e}
+.pms-dash-control select,.pms-dash-control input{display:block;width:100%;height:44px!important;min-height:44px;margin:0!important;border:1px solid #dce4ec;border-radius:13px!important;background-color:#fff;color:#536b7e;font-size:13px;font-weight:500;box-shadow:0 2px 7px rgba(44,71,93,.05);transition:border-color .16s,box-shadow .16s}
+.pms-dash-control select{padding-left:17px!important;padding-right:42px!important}
+.pms-dash-control input{padding:0 16px!important}
+.pms-dash-period-filter{width:156px}
+.pms-dash-cycle-filter{width:220px}
+.pms-dash-department-filter{width:178px}
+.pms-dash-date-filter{width:154px}
+.pms-visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.pms-dash-filter-error{margin:-8px 0 20px}
+/* A stable blue ring marks focus across all form controls without changing geometry. */
+input:focus,select:focus,textarea:focus,[role="combobox"]:focus,[contenteditable="true"]:focus{outline:none!important;border-color:#5B9FE2!important;box-shadow:0 0 0 3px rgba(91,159,226,.18)!important}
+button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:2px solid #5B9FE2;outline-offset:2px;box-shadow:0 0 0 3px rgba(91,159,226,.18)}
+input[aria-invalid="true"]:focus,select[aria-invalid="true"]:focus,textarea[aria-invalid="true"]:focus,input:user-invalid:focus,select:user-invalid:focus,textarea:user-invalid:focus{border-color:#c96c60!important;box-shadow:0 0 0 3px rgba(201,108,96,.18)!important}
+.ratings input:focus-visible+span{outline:2px solid #5B9FE2;outline-offset:2px;box-shadow:0 0 0 3px rgba(91,159,226,.18)}
+@media(max-width:1180px){.pms-dash-header{align-items:flex-start;flex-wrap:wrap;gap:16px}.pms-dash-filters{justify-content:flex-start}.pms-dash-title{min-width:min(100%,300px)}.pms-dash-donut{gap:15px}.pms-dash-donut svg{width:145px}.pms-dash-bar{grid-template-columns:minmax(100px,1.2fr) minmax(65px,1fr) 40px;gap:10px}}
+@media(max-width:850px){.pms-dash-grid{grid-template-columns:1fr}.pms-dash-stats .pms-dash-stat{padding:20px}.pms-dash-stat strong{font-size:32px}}
+@media(max-width:700px){.pms-dash-header{gap:14px;margin-bottom:20px}.pms-dash-filters{width:100%;gap:10px}.pms-dash-control{flex:1 1 145px;width:auto;min-width:135px}.pms-dash-control select,.pms-dash-control input{font-size:12px}.pms-dash-title p{font-size:11px}}
